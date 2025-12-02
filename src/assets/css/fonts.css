@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'betclic-bold';
+    src: url('@/assets/fonts/Betclic-Bold.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-Bold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-medium';
+    src: url('@/assets/fonts/Betclic-Medium.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-Medium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-regular';
+    src: url('@/assets/fonts/Betclic-Regular.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-black';
+    src: url('@/assets/fonts/Betclic-CondensedBlack.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedBlack.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-bold';
+    src: url('@/assets/fonts/Betclic-CondensedBold.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedBold.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-regular';
+    src: url('@/assets/fonts/Betclic-CondensedRegular.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedRegular.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-medium';
+    src: url('@/assets/fonts/Betclic-CondensedMedium.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedMedium.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-bold-italic';
+    src: url('@/assets/fonts/Betclic-BoldItalic.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-BoldItalic.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-bold-italic';
+    src: url('@/assets/fonts/Betclic-CondensedBoldItalic.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedBoldItalic.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-back-italic';
+    src: url('@/assets/fonts/Betclic-BlackItalic.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-BlackItalic.woff') format('woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'betclic-condensed-light';
+    src: url('@/assets/fonts/Betclic-CondensedLight.woff2') format('woff2'),
+        url('@/assets/fonts/Betclic-CondensedLight.woff') format('woff');
+    font-display: swap;
+}
