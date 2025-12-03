@@ -1,14 +1,28 @@
 <template>
-  <section id="home">
-    <div class="bg"></div>
-    <img class="logo" src="@/assets/images/home_logo.png" />
-    <img class="man" src="@/assets/images/home_man.png" />
-    <img class="ball ball1" src="@/assets/images/home_ball2.png" />
-    <img class="ball ball2" src="@/assets/images/home_ball1.png" />
-    <img class="ball ball3" src="@/assets/images/home_ball3.png" />
-    <img class="ball ball4" src="@/assets/images/home_ball4.png" />
+  <section id="home">   
+    <img class="forms l" src="@/assets/images/home_forms_left.png" />
+    <img class="forms r" src="@/assets/images/home_forms_right.png" />
 
-    <div class="board">
+    <div class="frame center">
+      <img src="@/assets/images/home_frame_center.png" />
+      <div class="inside">
+        <h1>Este Natal, <br>envia postais <br>e deixa-te <br>de likes!</h1>
+        <p>Surpreende o teu amigo <br>com um postal de natal <br>e ajuda-o a ganhar uma <br>freebet.</p>
+        <div class="button" @click="start($event)">
+          <svg width="248" height="64" viewBox="0 0 248 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1.5 10.2021L10.8867 1.5L236.368 1.49999L245.629 10.208L246.486 53.4658L236.389 62.5L10.9023 62.5L1.5 53.4844L1.5 10.2021Z"
+              fill="#810000" fill-opacity="0.8" stroke="#FF0000" stroke-width="3" />
+          </svg>
+          <p>Cria o teu postal</p>
+        </div>
+      </div>
+    </div>
+
+    <img class="frame l" src="@/assets/images/home_man_1.png" />
+    <img class="frame r" src="@/assets/images/home_man_2.png" />
+
+    <!--<div class="board">
       <div class="border"></div>
       <div class="col l">
         <p>Este natal <br />envia postais</p>
@@ -16,9 +30,11 @@
       </div>
       <div class="col r">
         <p>Surpreende o teu <br />amigo com um postal <br />de natal.</p>
-        <a href="#" ref="bt" @click="start($event)" @mousedown="this.$refs.bt.classList.add('down')"  @mouseup="this.$refs.bt.classList.remove('down')" @mouseleave="this.$refs.bt.classList.remove('down')"><span>Cria o teu postal</span></a>
+        <a href="#" ref="bt" @click="start($event)" @mousedown="this.$refs.bt.classList.add('down')"
+          @mouseup="this.$refs.bt.classList.remove('down')"
+          @mouseleave="this.$refs.bt.classList.remove('down')"><span>Cria o teu postal</span></a>
       </div>
-    </div>
+    </div>-->
   </section>
 </template>
 
@@ -41,14 +57,13 @@ export default {
     share() {
       window.open(`https://api.whatsapp.com:/send?text=https://postaisjinglebet.betclic.pt/`);
     },
-    
+
 
     start(e) {
       e.preventDefault();
-      const siteaudio = document.getElementById("siteaudio"); 
-      const soundbutton = document.getElementById("soundbutton"); 
-      soundbutton.classList.add('show');
-      siteaudio.volume = 0.2;
+      const siteaudio = document.getElementById("siteaudio");
+      const soundbutton = document.getElementById("soundbutton");
+      soundbutton.classList.add('show'); siteaudio.volume = 0.2;
       siteaudio.play();
       this.setStarted(true);
       this.$router.push({ path: 'build' })
@@ -59,533 +74,183 @@ export default {
 
 <style scoped lang="scss">
 #home {
-  background: #000;
-  background-image: url('@/assets/images/home_bg.jpg');
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   display: block;
+  transition: opacity .7s ease;
+  $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
 
-  .bg {
+  .forms {
     position: absolute;
-    left: 0;
     top: 0;
-    width: 100%;
     height: 100%;
-    background: #224040;
-    background-image: url('@/assets/images/choose_bg.png');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    opacity: 0;
-  }
-
-  .man {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 0%);
-    z-index: 2;
-
-    @media only screen and (max-height: 800px) {
-      bottom: -150px;
-    }
-
-    @media only screen and (max-height: 680px) {
-      bottom: -250px;
-    }
-
-    @media only screen and (max-width: 1030px) {
-      width: 400px;
-    }
-
-    @media only screen and (max-width: 980px) {
-      width: 300px;
-    }
-
-    @media only screen and (max-width: 820px) {
-      width: 250px;
-    }
-
-    @media only screen and (max-width: 768px) {
-      z-index: 1;
-      width: 300px;
-      bottom: 290px;
-    }
-
-    @media only screen and (max-width: 580px) {
-      width: 300px;
-      bottom: 160px;
-    }
-  }
-
-  .logo {
-    position: absolute;
-    left: 50%;
-    top: 70px;
-    transform: translate(-50%, 0%);
-    max-width: 774px;
-    width: 90%;
-
-    @media only screen and (max-width: 580px) {
-      top: 30px;
-    }
-  }
-
-  .ball {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -400px;
-    z-index: 3;
-    transition: all .3s;
-
-    &.ball1 {
-      transform: translateX(calc(-50% - 415px));
-      top: -620px;
-
-      @media only screen and (max-width: 768px) {
-        transform: translateX(calc(-50% - 127px));
-        top: -389px;
-        width: 61px;
-      }
-
-      @media only screen and (max-width: 580px) {
-        transform: translateX(calc(-50% - 67px));
-        top: -309px;
-        width: 45px;
-      }
-    }
-
-    &.ball2 {
-      transform: translateX(calc(-50% - 570px));
-      top: -500px;
-
-      @media only screen and (max-width: 768px) {
-        transform: translateX(calc(-50% - 275px));
-        top: -190px;
-        width: 100px;
-      }
-
-      @media only screen and (max-width: 580px) {
-        transform: translateX(calc(-50% - 142px));
-        top: -153px;
-        width: 65px;
-      }
-    }
-
-    &.ball3 {
-      transform: translateX(calc(-50% + 410px));
-      top: -630px;
-
-      @media only screen and (max-width: 580px) {
-        display: none;
-      }
-    }
-
-    &.ball4 {
-      transform: translateX(calc(-50% + 580px));
-      top: -420px;
-
-      @media only screen and (max-width: 768px) {
-        transform: translateX(calc(-50% + 290px));
-        top: -80px;
-        width: 120px;
-      }
-
-      @media only screen and (max-width: 580px) {
-        transform: translateX(calc(-50% + 160px));
-        top: -110px;
-        width: 90px;
-      }
-    }
-  }
-
-  .board {
-    background: rgb(244, 0, 9);
-    background: linear-gradient(180deg, rgba(244, 0, 9, 1) 0%, rgba(142, 0, 5, 1) 100%);
-    width: 90%;
-    max-width: 1065px;
-    min-height: 275px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, calc(-50% + 160px));
-    z-index: 1;
-    position: relative;
-
-    @media only screen and (max-width: 768px) {
-      z-index: 2;
-      text-align: center;
-      padding: 30px 0 110px;
-      min-height: auto;
-      top: auto;
-      transform: translateX(-50%);
-      bottom: 10px;
-      position: absolute;
-    }
-
-    .border {
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      width: calc(100% - 20px);
-      height: calc(100% - 20px);
-      z-index: 1;
-      border: 1px solid #000;
-      opacity: .3;
-      pointer-events: none;
-    }
-  }
-
-  .col {
-    position: absolute;
-
-    @media only screen and (max-width: 768px) {
-      position: relative;
-    }
+    width: auto;
+    pointer-events: none;
+    transform: translateX(0) scale(1);
+    transition: $anime;
 
     &.l {
-      top: 50%;
-      transform: translateY(-50%);
-      left: 55px;
-
-      @media only screen and (max-width: 768px) {
-        top: auto;
-        transform: none;
-        left: auto;
-      }
-
-      p {
-        color: #fff;
-        font-family: 'betclic-condensed-regular';
-        text-transform: uppercase;
-        font-size: 52px;
-        font-weight: 400;
-        line-height: 41.08px;
-
-        @media only screen and (max-width: 768px) {
-          margin-bottom: 15px;
-
-          br {
-            content: '';
-            display: none;
-
-            &::after {
-              content: ' ';
-            }
-          }
-        }
-
-        @media only screen and (max-width: 580px) {
-          font-size: 32px;
-          line-height: 100%;
-          margin-bottom: 0;
-        }
-
-        &.big {
-          margin-top: 10px;
-          font-family: 'betclic-bold-italic';
-          color: #F8CF7D;
-          text-shadow: -4px 4px 0px #00000050;
-          font-size: 42px;
-          font-weight: 750;
-          line-height: 36.12px;
-
-          @media only screen and (max-width: 580px) {
-            font-size: 26px;
-            line-height: 100%;
-            margin-top: 0;
-          }
-        }
-      }
+      left: 0;
+      transform-origin: left center;
     }
 
     &.r {
-      top: 50%;
-      transform: translateY(-50%);
-      right: 35px;
+      right: 0;
+      transform-origin: right center;
+    }
+  }
 
-      @media only screen and (max-width: 768px) {
-        top: auto;
-        transform: none;
-        right: auto;
-      }
+  .frame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    transition: $anime;
 
-      p {
-        font-family: 'betclic-regular';
-        color: #fff;
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 21.6px;
+    &.l {
+      transform: translate(calc(-150% - 50px), calc(-50% + 160px));
+      z-index: 1;
+      width: 351px;
+      height: 590px;
+    }
 
-        @media only screen and (max-width: 768px) {
-          max-width: 419px;
-          margin: auto;
-          text-align: center;
+    &.r {
+      transform: translate(calc(50% + 50px), calc(-50% + 160px));
+      z-index: 1;
+      width: 349px;
+      height: 590px;
+    }
 
-          br {
-            content: '';
-            display: none;
+    &.center {
+      transform: translate(-50%, calc(-50% + 160px));
+      width: 369px;
+      height: 559px;
 
-            &::after {
-              content: ' ';
+      .inside {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+
+        h1 {
+          color: #fff;
+          font-family: 'betclic-back-italic';
+          text-shadow: -2px 2px 0px #A0A0A080;
+          text-transform: uppercase;
+          font-size: 32px;
+          line-height: 90%;
+        }
+
+        p {
+          font-family: 'betclic-medium';
+          line-height: 107%;
+          font-size: 20px;
+          margin-top: 30px;
+          color: #fff;
+        }
+
+        .button {
+          position: relative;
+          margin-top: 40px;
+          cursor: pointer;
+          pointer-events: all;
+
+          svg {
+            path {
+              transition: all .3s;
             }
           }
-        }
 
-        @media only screen and (max-width: 580px) {
-          font-size: 14px;
-          max-width: 264px;
-          margin-top: 15px;
-        }
-      }
+          &:hover {
+            svg {
+              path {
+                fill-opacity: 1;
+              }
+            }
+          }
 
-      a {
-        width: 244px;
-        height: 55px;
-        background: #F8CF7D;
-        text-transform: uppercase;
-        font-family: 'betclic-regular';
-        color: #000;
-        text-decoration: none;
-        font-size: 19.28px;
-        font-style: italic;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 27px;
-        box-shadow: -4px 4px 0px #000000;
-
-        @media only screen and (max-width: 768px) {
-          margin: 15px auto 0 auto;
-        }
-
-        &.down {
-          box-shadow: none;
-          position: relative;
-          top: 2px;
+          p {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'betclic-bold-italic';
+            text-transform: uppercase;
+            font-size: 19px;
+            white-space: nowrap;
+            margin-top: 0;
+          }
         }
       }
     }
   }
 
   &.v-enter-from {
-    .ball {
-      &.ball1 {
-        top: -860px;
+  
+    .frame {
+      &.center {
+        transform: translate(-50%, 200%);
       }
 
-      &.ball2 {
-        top: -950px;
+
+      &.l {
+        transform: translate(-50%, 200%);
       }
 
-      &.ball4 {
-        top: -910px;
-      }
-
-      &.ball3 {
-        top: -850px;
+      &.r {
+        transform: translate(-50%, 200%);
       }
     }
 
-    .man {
-      transform: translate(-50%, 100%);
-    }
-
-    .board {
-      transform: translate(-50%, calc(-50% + 160px)) scale(0);
-    }
-
-    .logo {
-      transform: translate(-50%, -150%);
-    }
-  }
-
-  &.v-enter-to {
-    .ball {
-      &.ball1 {
-        top: -620px;
+    .forms {
+      &.l {
+        transform: translateX(-100%) scale(1.3);
       }
 
-      &.ball2 {
-        top: -500px;
+      &.r {
+        transform: translateX(100%) scale(1.3);
       }
-
-      &.ball4 {
-        top: -420px;
-      }
-
-      &.ball3 {
-        top: -630px;
-      }
-    }
-
-    .man {
-      transform: translate(-50%, 0%);
-    }
-
-    .board {
-      transform: translate(-50%, calc(-50% + 160px)) scale(1);
-    }
-
-    .logo {
-      transform: translate(-50%, 0%);
     }
   }
 
   &.v-leave-from {
-    .ball {
-      &.ball1 {
-        top: -620px;
-      }
-
-      &.ball2 {
-        top: -500px;
-      }
-
-      &.ball4 {
-        top: -420px;
-      }
-
-      &.ball3 {
-        top: -630px;
-      }
+    .frame.center {
+      transform: translate(-50%, calc(-50% + 160px));
     }
 
-    .man {
-      transform: translate(-50%, 0%);
+    .frame.l {
+      transform: translate(calc(-150% - 50px), calc(-50% + 160px));
     }
 
-    .board {
-      transform: translate(-50%, calc(-50% + 160px)) scale(1);
-    }
-
-    .logo {
-      transform: translate(-50%, 0%);
-    }
-
-    .bg {
-      opacity: 0;
+    .frame.r {
+      transform: translate(calc(50% + 50px), calc(-50% + 160px));
     }
   }
 
   &.v-leave-to {
-    .ball {
-      &.ball1 {
-        top: -860px;
-      }
-
-      &.ball2 {
-        top: -950px;
-      }
-
-      &.ball4 {
-        top: -910px;
-      }
-
-      &.ball3 {
-        top: -850px;
-      }
+    .frame.center {
+      transform: translate(-50%, 200%);
     }
 
-    .man {
-      transform: translate(-50%, 1000%);
+    .frame.l {
+      transform: translate(-50%, 200%);
     }
 
-    .board {
-      transform: translate(-50%, calc(-50% + 160px)) scale(0);
+    .frame.r {
+      transform: translate(-50%, 200%);
     }
 
-    .logo {
-      transform: translate(-50%, -150%);
+    .forms.l {
+      transform: translateX(-100%) scale(1.3);
+      opacity: 0;
     }
 
-    .bg {
-      opacity: 1;
+    .forms.r {
+      transform: translateX(100%) scale(1.3);
+      opacity: 0;
     }
-  }
-
-  &.v-enter-active {
-    transition: all 2s;
-
-    @media only screen and (max-width: 580px) {
-      transition: all 0s;
-    }
-
-    .ball {
-      transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-      transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-
-      &.ball2 {
-        transition-delay: 200ms;
-      }
-
-      &.ball4 {
-        transition-delay: 300ms;
-      }
-
-      &.ball3 {
-        transition-delay: 400ms;
-      }
-    }
-
-    .man {
-      transition: all 300ms ease-out;
-    }
-
-    .board {
-      transition: all 300ms ease-out;
-    }
-
-    .logo {
-      transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-      transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-    }
-  }
-
-  &.v-leave-active {
-    transition: all .7s;
-
-    @media only screen and (max-width: 580px) {
-      transition: all 0s;
-    }
-
-    .ball {
-      transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-      transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-
-      &.ball2 {
-        transition-delay: 200ms;
-      }
-
-      &.ball4 {
-        transition-delay: 300ms;
-      }
-
-      &.ball3 {
-        transition-delay: 400ms;
-      }
-    }
-
-    .man {
-      transition: all 500ms ease-in;
-    }
-
-    .board {
-      transition: all 250ms ease-in;
-    }
-
-    .logo {
-      transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-      transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-    }
-
-    .bg {
-      transition: all 250ms ease-in;
-    }
-
   }
 }
 </style>

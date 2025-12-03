@@ -1,8 +1,9 @@
 <template>
 
     <section id="choose">
+        <img ref="forml" class="forms l" src="@/assets/images/home_forms_left.png" />
+        <img ref="formr" class="forms r" src="@/assets/images/home_forms_right.png" />
 
-        <img class="logo" @click="$router.push({ path: '/' })" src="@/assets/images/home_logo.png" />
         <div @click="onClickMask($event)" @touchend="onClickMask($event)" @touchstart="onMasktouchStart($event)"
             ref="mask" class="mask"></div>
         <div class="grid-container">
@@ -18,9 +19,11 @@
 
             <div class="pagination" ref="pagination">
                 <div class="current" ref="pagcurrent"></div>
+
                 <svg width="120" height="121" viewBox="0 0 120 121" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.2" d="M118.692 1.1543L1 120.154" stroke="#EAE1D0" stroke-width="1.30769" />
+                    <path d="M118.403 0.703247L0.710938 119.703" stroke="white" stroke-width="2" />
                 </svg>
+
                 <div class="total" ref="pagtotal"></div>
             </div>
 
@@ -30,19 +33,25 @@
 
             <div class="nav" ref="nav">
                 <div class="go r disabled" ref="navr" @click="moveSliderDirection('r')">
-                    <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.6094 1.19434L30.3704 11.6388M30.3704 11.6388L19.6094 22.0832M30.3704 11.6388H0.777771"
-                            stroke="white" stroke-width="1.30556" />
+
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="rect" d="M0 0H60V60H0V0Z" fill="#F40009" />
+                        <path class="path"
+                            d="M29.1312 20.3055L18.3703 31.1852M18.3703 31.1852L29.1312 42.0648M18.3703 31.1852H47.9629"
+                            stroke="white" stroke-width="2" />
                     </svg>
+
                 </div>
 
                 <div class="go l" ref="navl" @click="moveSliderDirection('l')">
-                    <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M19.6094 1.19434L30.3704 11.6388M30.3704 11.6388L19.6094 22.0832M30.3704 11.6388H0.777771"
-                            stroke="white" stroke-width="1.30556" />
+
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="rect" d="M0 0H60V60H0V0Z" fill="#F40009" />
+                        <path class="path"
+                            d="M29.1312 20.3055L18.3703 31.1852M18.3703 31.1852L29.1312 42.0648M18.3703 31.1852H47.9629"
+                            stroke="white" stroke-width="2" />
                     </svg>
+
                 </div>
             </div>
 
@@ -58,22 +67,26 @@
                     <a href="#" ref="bt3" class="submit" @click="submitPostal($event)"
                         @mousedown="this.$refs.bt3.classList.add('down')"
                         @mouseup="this.$refs.bt3.classList.remove('down')"
-                        @mouseleave="this.$refs.bt3.classList.remove('down')"><span>Criar Postal</span></a>
+                        @mouseleave="this.$refs.bt3.classList.remove('down')"><span>Criar Postal</span>
+                        <svg width="377" height="64" viewBox="0 0 377 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.5 10.2021L10.8867 1.5L365.368 1.49998L374.629 10.208L375.486 53.4658L365.389 62.5L10.9023 62.5L1.5 53.4844L1.5 10.2021Z"
+                                fill="#810000" stroke="#FF0000" stroke-width="3" />
+                        </svg>
+
+                    </a>
                     <div class="error" ref="submiterror"></div>
                     <div class="loader" ref="submitloader"></div>
                 </div>
             </div>
 
         </div>
-        <img class="ball ball1" ref="ball1" src="@/assets/images/home_ball4.png" />
-        <div class="ball ball2" ref="ball2">
-            <img class="" src="@/assets/images/home_ball5.png" />
-            <p @click="finalChoose()">Escreve uma<br />mensagem<br /><span>e partilha este<br />postal</span></p>
-        </div>
 
-        <img class="ball ball5" ref="ball5" src="@/assets/images/home_ball4.png" />
-        <img class="ball ball4" ref="ball4" src="@/assets/images/home_ball1.png" />
-        <img class="ball ball3" ref="ball3" src="@/assets/images/home_ball2.png" />
+        <div ref="balloon" @click="finalChoose()" class="balloon">
+            <img src="@/assets/images/balloon.png" />
+            <p>Escreve uma<br />mensagem<br /><span>e partilha<br>este postal</span></p>
+        </div>
 
     </section>
 </template>
@@ -110,7 +123,7 @@ import axios from 'axios';
 
 export default {
 
-    components: { /*Checkbox */},
+    components: { /*Checkbox */ },
 
     data() {
         return {
@@ -619,6 +632,10 @@ export default {
                 document.getElementById('footer').classList.add('removesocial');
             }
 
+            this.$refs.forml.classList.add('show');
+            this.$refs.formr.classList.add('show');
+            this.$refs.balloon.classList.add('show');
+
             this.setPID({ pid: chosenDiv.getAttribute('iid') });
         },
 
@@ -642,9 +659,6 @@ export default {
 
             if (this.sliderImgIdx == 1) this.$refs.navl.classList.add('disabled');
             if (this.sliderImgIdx == this.imageSlider.length) this.$refs.navr.classList.add('disabled');
-
-            this.$refs.ball1.classList.add('show');
-            this.$refs.ball2.classList.add('show');
         },
 
         moveSliderDirection(dir) {
@@ -691,8 +705,8 @@ export default {
             var view = this;
 
             this.$refs.sliderImages.classList.remove('transitions');
-            this.$refs.ball1.classList.remove('show');
-            this.$refs.ball2.classList.remove('show');
+            //this.$refs.ball1.classList.remove('show');
+            this.$refs.balloon.classList.add('hide');
             this.$refs.nav.classList.add('hide');
             this.$refs.pagination.classList.add('hide');
 
@@ -704,11 +718,11 @@ export default {
 
             this.$refs.form.classList.add('show');
 
-            setTimeout(function () {
+            /*setTimeout(function () {
                 view.$refs.ball3.classList.add('show');
                 view.$refs.ball4.classList.add('show');
                 view.$refs.ball5.classList.add('show');
-            }, 300);
+            }, 300);*/
 
             if (window.innerWidth > 768) {
                 gsap.to(this.$refs.sliderImages, { ease: "sine.inOut", duration: .3, x: '-=' + this.boxWidthBig / 2 });
@@ -782,14 +796,11 @@ export default {
 
 <style lang="scss">
 #choose {
-    background: #224040;
-    background-image: url('@/assets/images/choose_bg.png');
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     display: block;
     position: relative;
     z-index: 1;
+    $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
 
     .frames {
         position: absolute;
@@ -801,151 +812,76 @@ export default {
         }
     }
 
-    .ball {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -400px;
-        z-index: 3;
-        transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-        transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -o-user-select: none;
-        user-select: none;
+    .grid-container {
+        transition: $anime;
+    }
 
-        &.ball1 {
-            transform: translateX(calc(-50% - 285px));
-            top: -470px;
-            width: 108px;
+    .forms {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: auto;
+        pointer-events: none;
+        transform: translateX(0) scale(1);
+        transition: $anime;
 
-            &.show {
-
-                top: -150px;
-            }
-
-            @media only screen and (max-width: 768px) {}
-
-            @media only screen and (max-width: 580px) {}
+        &.l {
+            left: 0;
+            transform-origin: left center;
+            transform: translateX(-100%) scale(1.3);
+            opacity: 0;
         }
 
-        &.ball2 {
-            transform: translateX(calc(-50% - -310px));
-            top: -1890px;
-            z-index: 4000;
-
-            &.show {
-                top: -1000px;
-                transition-delay: 100ms;
-
-                @media only screen and (max-width: 580px) {
-                    top: -380px;
-                }
-            }
-
-            @media only screen and (max-width: 580px) {
-                transform: translateX(calc(-50% + 128px));
-                pointer-events: none;
-            }
-
-            img {
-                @media only screen and (max-width: 580px) {
-                    width: 130px;
-                }
-            }
-
-            p {
-                position: absolute;
-                width: 100%;
-                text-align: center;
-                bottom: 68px;
-                font-family: 'betclic-condensed-regular';
-                text-transform: uppercase;
-                font-size: 36px;
-                color: #fff;
-                line-height: 79%;
-                transition: all 300ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-                transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-                cursor: pointer;
-
-                span {
-                    color: #F8CF7D;
-                }
-
-                &:hover {
-                    transform-origin: center;
-                    //transform: scale(1.05);
-                }
-
-                @media only screen and (max-width: 580px) {
-                    font-size: 20px;
-                    bottom: 30px;
-                    pointer-events: all;
-                    line-height: 18px;
-                }
-            }
+        &.r {
+            right: 0;
+            transform-origin: right center;
+            transform: translateX(100%) scale(1.3);
+            opacity: 0;
         }
 
-        &.ball3 {
-            transform: translateX(calc(-50% - 515px));
-            top: -890px;
-            width: 108px;
-            z-index: 10000;
-
-            &.show {
-                top: -520px;
+        &.show {
+            &.l {
+                transform: translateX(0%) scale(1);
+                opacity: 1;
             }
 
-            @media only screen and (max-width: 768px) {}
-
-            @media only screen and (max-width: 580px) {}
-        }
-
-        &.ball4 {
-            transform: translateX(calc(-50% - 335px));
-            top: -440px;
-            width: 80px;
-            z-index: 10000;
-
-            &.show {
-                top: -290px;
+            &.r {
+                transform: translateX(0%) scale(1);
+                opacity: 1;
             }
-
-            @media only screen and (max-width: 768px) {}
-
-            @media only screen and (max-width: 580px) {}
-        }
-
-        &.ball5 {
-            transform: translateX(calc(-50% + 545px));
-            top: -700px;
-            width: 163px;
-            z-index: 10000;
-
-            &.show {
-                top: -350px;
-            }
-
-            @media only screen and (max-width: 768px) {}
-
-            @media only screen and (max-width: 580px) {}
         }
     }
 
-    .logo {
-        position: absolute;
+    .balloon {
+        position: fixed;
         left: 50%;
-        top: 30px;
-        transform: translate(-50%, 0%);
-        max-width: 262px;
-        width: 90%;
-        z-index: 3000;
+        transform: translate(calc(-50% + 310px), calc(-50% + 160px)) scale(0);
+        top: 50%;
+        z-index: 10000;
+        transform-origin: center;
+        transition: $anime;
         cursor: pointer;
 
-        @media only screen and (max-width: 580px) {
-            top: 20px;
-            max-width: 172px;
+        &.hide {
+            display: none;
+        }
+
+        &.show {
+            transform: translate(calc(-50% + 310px), calc(-50% + 160px)) scale(1);
+        }
+
+        p {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'betclic-back-italic';
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+            text-shadow: -2px 2px 0px #A0A0A080;
         }
     }
 
@@ -1084,6 +1020,7 @@ export default {
             top: 50%;
             transform: translate(calc(-50% + 550px), -50%);
             transition: opacity .3s;
+            z-index: 10;
 
             &.hide {
                 opacity: 0;
@@ -1091,15 +1028,14 @@ export default {
             }
 
             .go {
-                border: 1px solid #fff;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border-radius: 87px;
-                width: 77px;
-                height: 64px;
+                width: 60px;
+                height: 60px;
                 margin: 10px 0;
                 cursor: pointer;
+                box-shadow: 0px 4px 0px #7B1920;
 
                 &.disabled {
                     opacity: .3;
@@ -1109,15 +1045,17 @@ export default {
                 &.r {
                     margin-left: 15px;
 
+                    svg {
+                        transform: scale(-1);
+                    }
+
+
                     @media only screen and (max-width: 580px) {
                         margin-left: 0;
                     }
                 }
 
                 &.l {
-                    svg {
-                        transform: scale(-1);
-                    }
 
                     @media only screen and (max-width: 580px) {
                         transform: rotate(0deg);
@@ -1125,11 +1063,15 @@ export default {
                 }
 
                 &:hover {
-                    background: #fff;
+                    box-shadow: none;
 
                     svg {
-                        path {
-                            stroke: #224040;
+                        .rect {
+                            fill: #fff;
+                        }
+
+                        .path {
+                            stroke: #F40009;
                         }
                     }
                 }
@@ -1176,11 +1118,12 @@ export default {
             left: 50%;
             top: 50%;
             transform: translate(calc(-50% - 510px), -50%);
-            font-family: 'betclic-condensed-light';
+            font-family: 'betclic-back-italic';
             color: #fff;
             width: 120px;
             height: 120px;
             transition: opacity .3s;
+            z-index: 10;
 
             @media only screen and (max-width: 580px) {
                 width: 40px;
@@ -1210,34 +1153,19 @@ export default {
                 @media only screen and (max-width: 580px) {
                     font-size: 18px;
                     left: 0;
-                    /* position: relative;
-                    left: auto;
-                    top: auto;
-                    font-size: 25px;
-
-                    &::after {
-                        content: ' / ';
-                        display: inline-block;
-                        margin: 0 10px;
-                        font-size: 25px;
-                    }*/
                 }
             }
 
             .total {
                 position: absolute;
-                right: -10px;
-                bottom: -20px;
+                right: -73px;
+                bottom: -29px;
                 font-size: 96px;
 
                 @media only screen and (max-width: 580px) {
                     font-size: 36px;
                     right: 0;
                     bottom: 0;
-                    /*position: relative;
-                    right: auto;
-                    bottom: auto;
-                    font-size: 25px;*/
                 }
             }
         }
@@ -1335,8 +1263,7 @@ export default {
 
             a {
                 width: 100%;
-                height: 55px;
-                background: #F40009;
+                height: 64px;
                 text-transform: uppercase;
                 font-family: 'betclic-regular';
                 color: #fff;
@@ -1345,15 +1272,35 @@ export default {
                 font-style: italic;
                 font-weight: bold;
                 display: flex;
-                justify-content: center;
                 align-items: center;
                 margin-top: 27px;
-                box-shadow: -4px 4px 0px #000000;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                }
+
+                svg {
+                    fill-opacity: .95;
+                    ;
+                }
+
+                &:hover {
+                    svg {
+                        fill-opacity: 1;
+                        ;
+                    }
+                }
 
                 &.down {
-                    box-shadow: none;
-                    position: relative;
-                    top: 2px;
+                    svg {
+                        fill-opacity: 1;
+                        ;
+                    }
                 }
 
                 @media only screen and (max-width: 768px) {
@@ -1422,73 +1369,43 @@ export default {
     }
 
     &.v-enter-from {
-        .logo {
-            transform: translate(-50%, -150%);
-        }
-
         .grid-container {
-            transform: scale(0);
+            opacity: 0;
+            transform: scale(0.5);
         }
     }
 
     &.v-enter-to {
-        .logo {
-            transform: translate(-50%, 0%);
-        }
-
         .grid-container {
             transform: scale(1);
+            opacity: 1;
         }
     }
 
     &.v-leave-from {
-        .logo {
-            transform: translate(-50%, 0%);
-        }
-
         .grid-container {
             transform: scale(1);
         }
     }
 
     &.v-leave-to {
-        .logo {
-            transform: translate(-50%, -150%);
-        }
-
         .grid-container {
             transform: scale(0);
         }
     }
 
-    &.v-enter-active {
+    &.v-enter-active,
+    &.v-leave-active {
 
-        transition: all 1.4s;
+        .grid-container {
+            transition: $anime;
+        }
 
         @media only screen and (max-width: 580px) {
-            transition: all 0s;
-        }
 
-        .logo {
-            transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-            transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-            transition-delay: .7s;
-        }
-
-        .grid-container {
-            transition: all 500ms cubic-bezier(0.365, 1.650, 0.575, 0.830);
-            transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-            transition-delay: .7s;
-        }
-    }
-
-    &.v-leave-active {
-        .logo {
-            transition: all .5s ease-out;
-        }
-
-        .grid-container {
-            transition: all .5s ease-out;
+            .grid-container {
+                transition: none;
+            }
         }
     }
 

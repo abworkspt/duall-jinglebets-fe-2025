@@ -10,28 +10,33 @@
                 </svg>
             </a>-->
             <a :href="'https://www.facebook.com/sharer.php?u=' + shareUrl" target="_blank">
-                <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="37.7091" height="36.2007" fill="#F40009" />
                     <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M6.26446 5.94891V4.43373C6.26446 3.70809 6.72567 3.53315 7.05224 3.53315H9.04459V0.295898H6.29454C3.24656 0.295898 2.56191 2.69645 2.56191 4.24358V5.94891H0.792999V9.72317H2.57767V19.1504H6.13126V9.72317H8.76243L8.88131 8.23841L9.08899 5.94891H6.26446Z"
+                        d="M20.5553 13.9489V12.4337C20.5553 11.7081 21.0165 11.5331 21.3431 11.5331H23.3355V8.2959H20.5854C17.5374 8.2959 16.8528 10.6965 16.8528 12.2436V13.9489H15.0839V17.7232H16.8685V27.1504H20.4221V17.7232H23.0533L23.1722 16.2384L23.3799 13.9489H20.5553Z"
                         fill="white" />
                 </svg>
             </a>
             <a target="_blank" :href="'https://twitter.com/share?url=' + shareUrl + '&text=' + shareText">
-                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="37.7091" height="36.2007" fill="#F40009" />
                     <path
-                        d="M11.3001 7.71013L17.7576 0.0498047H16.2274L10.6203 6.70116L6.14197 0.0498047H0.976746L7.74887 10.1078L0.976746 18.1409H2.50705L8.42824 11.1168L13.1577 18.1409H18.3229L11.2997 7.71013H11.3001ZM9.20411 10.1964L8.51795 9.19489L3.05845 1.22543H5.40891L9.81479 7.65704L10.501 8.6586L16.2281 17.0187H13.8776L9.20411 10.1968V10.1964Z"
+                        d="M20.8819 16.7104L27.3394 9.05005H25.8092L20.2022 15.7014L15.7238 9.05005H10.5586L17.3307 19.1081L10.5586 27.1411H12.0889L18.0101 20.1171L22.7395 27.1411H27.9048L20.8815 16.7104H20.8819ZM18.786 19.1967L18.0998 18.1951L12.6403 10.2257H14.9908L19.3966 16.6573L20.0828 17.6588L25.8099 26.0189H23.4595L18.786 19.1971V19.1967Z"
                         fill="white" />
                 </svg>
+
             </a>
         </div>
         <div class="rt">
-            <a href="https://postaisjinglebet.betclic.pt/regulamento_jinglebet.pdf" target="_blank" class="reg">Regulamento</a>
+            <a href="https://postaisjinglebet.betclic.pt/regulamento_jinglebet.pdf" target="_blank"
+                class="reg">Regulamento</a>
             <a href="https://www.betclic.pt/" target="_blank" class="external">
                 <span>Betclic</span>
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                         d="M7.38116 0C6.96695 0 6.63116 0.335786 6.63116 0.75C6.63116 1.16421 6.96695 1.5 7.38116 1.5H9.93932L5.10328 6.33605C4.81038 6.62894 4.81038 7.10381 5.10328 7.39671C5.39617 7.6896 5.87104 7.6896 6.16394 7.39671L11 2.56064V5.11884C11 5.53305 11.3358 5.86884 11.75 5.86884C12.1642 5.86884 12.5 5.53305 12.5 5.11884V1.75C12.5 0.783502 11.7165 0 10.75 0H7.38116ZM0 3.55603C0 2.03725 1.23122 0.80603 2.75 0.80603H2.93442C3.34863 0.80603 3.68442 1.14182 3.68442 1.55603C3.68442 1.97024 3.34863 2.30603 2.93442 2.30603H2.75C2.05964 2.30603 1.5 2.86567 1.5 3.55603V9.45872C1.5 10.1491 2.05965 10.7087 2.75 10.7087H9.05079C9.68214 10.7087 10.1939 10.1969 10.1939 9.56556C10.1939 9.15135 10.5297 8.81556 10.9439 8.81556C11.3582 8.81556 11.6939 9.15135 11.6939 9.56556C11.6939 11.0253 10.5106 12.2087 9.05079 12.2087H2.75C1.23122 12.2087 0 10.9775 0 9.45872V3.55603Z"
-                        fill="#F8CF7D" />
+                        fill="#ffffff" />
                 </svg>
             </a>
         </div>
@@ -92,7 +97,6 @@ export default {
 
             &.external {
                 margin-left: 15px;
-                color: #F3B763;
 
                 svg {
                     margin-left: 6px;
@@ -129,21 +133,20 @@ export default {
         }
 
         a {
-            border: 1px solid #fff;
-            width: 37px;
-            height: 37px;
-            border-radius: 50%;
             margin-right: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
 
             &:hover {
-                background: #fff;
 
                 svg {
                     path {
-                        fill: #8E0005;
+                        fill: #F40009;
+                    }
+
+                    rect {
+                        fill: #fff;
                     }
                 }
             }
