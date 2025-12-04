@@ -1,10 +1,11 @@
 <template>
-  <section id="home">   
+  <section id="home">
     <img class="forms l" src="@/assets/images/home_forms_left.png" />
     <img class="forms r" src="@/assets/images/home_forms_right.png" />
 
     <div class="frame center">
-      <img src="@/assets/images/home_frame_center.png" />
+      <img class="desktop" src="@/assets/images/home_frame_center.png" />
+      <img class="mobile" src="@/assets/images/home_frame_center_mobile.png" />
       <div class="inside">
         <h1>Este Natal, <br>envia postais <br>e deixa-te <br>de likes!</h1>
         <p>Surpreende o teu amigo <br>com um postal de natal <br>e ajuda-o a ganhar uma <br>freebet.</p>
@@ -91,11 +92,19 @@ export default {
     &.l {
       left: 0;
       transform-origin: left center;
+
+      @media only screen and (max-width: 768px) {
+        left: -34%;
+      }
     }
 
     &.r {
       right: 0;
       transform-origin: right center;
+
+      @media only screen and (max-width: 768px) {
+        right: -30%;
+      }
     }
   }
 
@@ -111,6 +120,10 @@ export default {
       z-index: 1;
       width: 351px;
       height: 590px;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
 
     &.r {
@@ -118,12 +131,47 @@ export default {
       z-index: 1;
       width: 349px;
       height: 590px;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
 
     &.center {
-      transform: translate(-50%, calc(-50% + 160px));
+      top: auto;
+      bottom: 0;
+      transform: translate(-50%, -160px);
       width: 369px;
       height: 559px;
+
+      @media only screen and (max-width: 768px) {
+        width: 348px;
+        height: 614px;
+      }
+
+      @media only screen and (max-width: 580px) {
+        width: 300px;
+        height: 530px;
+        transform: translate(-50%, -39px);
+        z-index: 100;
+      }
+
+      img {
+        &.mobile {
+          display: none;
+          width: 100%;
+        }
+
+        @media only screen and (max-width: 768px) {
+          display: none;
+
+          &.mobile {
+            display: block;
+          }
+
+        }
+
+      }
 
       .inside {
         position: absolute;
@@ -133,6 +181,14 @@ export default {
         width: 80%;
         text-align: center;
 
+        @media only screen and (max-width: 768px) {
+          transform: translate(-50%, calc(-50% + 137px));
+        }
+
+        @media only screen and (max-width: 580px) {
+          transform: translate(-50%, calc(-50% + 77px));
+        }
+
         h1 {
           color: #fff;
           font-family: 'betclic-back-italic';
@@ -140,6 +196,10 @@ export default {
           text-transform: uppercase;
           font-size: 32px;
           line-height: 90%;
+
+          @media only screen and (max-width: 768px) {
+            font-size: 22px;
+          }
         }
 
         p {
@@ -148,6 +208,16 @@ export default {
           font-size: 20px;
           margin-top: 30px;
           color: #fff;
+
+          @media only screen and (max-width: 768px) {
+            font-size: 17px;
+            margin-top: 20px;
+          }
+
+          @media only screen and (max-width: 580px) {
+            margin-top: 5px;
+            font-size: 15px;
+          }
         }
 
         .button {
@@ -156,7 +226,16 @@ export default {
           cursor: pointer;
           pointer-events: all;
 
+          @media only screen and (max-width: 768px) {
+            margin-top: 5px;
+          }
+
           svg {
+
+            @media only screen and (max-width: 580px) {
+              width: 187px;
+            }
+
             path {
               transition: all .3s;
             }
@@ -181,6 +260,10 @@ export default {
             font-size: 19px;
             white-space: nowrap;
             margin-top: 0;
+
+            @media only screen and (max-width: 580px) {
+              font-size: 16px;
+            }
           }
         }
       }
@@ -188,7 +271,7 @@ export default {
   }
 
   &.v-enter-from {
-  
+
     .frame {
       &.center {
         transform: translate(-50%, 200%);

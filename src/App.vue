@@ -1,3 +1,7 @@
+<script setup>
+import audio from '@/assets/audio/audio.mp3'
+</script>
+
 <template>
   <div id="app" :class="routeClass">
 
@@ -58,7 +62,6 @@
 <script>
 
 import { provide } from "vue"
-import audio from '@/assets/audio/audio.mp3'
 import TheFooter from './components/TheFooter.vue'
 
 export default {
@@ -176,7 +179,7 @@ html {
   min-height: 900px;
   position: relative;
   overflow: hidden;
-  $anime: transform 1s cubic-bezier(.6, 1.43, .57, 1.01);
+  $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
 
   @media only screen and (max-width: 768px) {
     min-height: auto;
@@ -285,6 +288,10 @@ html {
     z-index: 10;
     cursor: pointer;
 
+    @media only screen and (max-width: 768px) {
+      max-width: 300px;
+    }
+
     @media only screen and (max-width: 580px) {
       top: 30px;
     }
@@ -295,11 +302,12 @@ html {
   }
 
   &.route-choose .logo {
-    top: 30px;
-    transform: translate(-50%, -40px) scale(0.39);
+    top: 60px;
+    transform: translate(-50%, -40px) scale(0.5);
   }
 
   &.route-finish .logo {
+    top: 60px;
     transform: translate(-50%, -40px) scale(0);
   }
 
@@ -324,22 +332,38 @@ html {
     &.t {
       top: 0;
       left: 90px;
+
+      @media only screen and (max-width: 580px) {
+        height: 8px;
+      }
     }
 
     &.l {
       left: 0;
       bottom: 100px;
+
+      @media only screen and (max-width: 580px) {
+        width: 8px;
+      }
     }
 
     &.r {
       right: 0;
       top: 160px;
+
+      @media only screen and (max-width: 580px) {
+        width: 8px;
+      }
     }
 
     &.b {
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
+
+      @media only screen and (max-width: 580px) {
+        height: 8px;
+      }
     }
   }
 

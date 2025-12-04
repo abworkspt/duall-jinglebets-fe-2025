@@ -427,8 +427,8 @@ export default {
   .nav {
     position: absolute;
     left: 0;
-    bottom: 0;
-    background: #F8CF7D;
+    bottom: 8px;
+    background: #b40005;
     height: 70px;
     width: 100%;
     z-index: 1111111;
@@ -437,6 +437,7 @@ export default {
     align-items: center;
     display: none;
     transition: all .3s;
+    color: #fff;
 
     @media only screen and (max-width: 768px) {
       display: flex;
@@ -455,7 +456,7 @@ export default {
 
     a {
       font-family: 'betclic-medium';
-      color: #000;
+      color: #fff;
       padding-right: 15px;
     }
   }
@@ -475,7 +476,6 @@ export default {
       position: relative;
 
       @media only screen and (max-width: 768px) {
-        margin-top: -80px;
       }
     }
 
@@ -494,11 +494,19 @@ export default {
         &.l {
           left: 0;
           transform-origin: left center;
+
+          @media only screen and (max-width: 768px) {
+            left: -34%;
+          }
         }
 
         &.r {
           right: 0;
           transform-origin: right center;
+
+          @media only screen and (max-width: 768px) {
+            right: -30%;
+          }
         }
       }
 

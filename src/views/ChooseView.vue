@@ -298,7 +298,8 @@ export default {
         if (window.grecaptcha) {
             window.grecaptcha.ready(() => {
                 this.widgetId = window.grecaptcha.render(this.$refs.recaptcha, {
-                    sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ',
+                    //sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ',
+                    sitekey: '6Lc-MyEsAAAAACF1ZvHB9jQ-uYZ4J1Q7h5wbEB4T',
                     callback: (token) => {
                         this.response = token      // aqui ficas com o token
                     },
@@ -775,15 +776,15 @@ export default {
                 return;
             }
 
-           /* if (!this.response) {
-                this.$refs.submiterror.innerHTML = "Captcha inválido";
-                return;
-            }*/
+             if (!this.response) {
+                 this.$refs.submiterror.innerHTML = "Captcha inválido";
+                 return;
+             }
 
             this.$refs.submiterror.innerHTML = "";
             this.$refs.submitloader.classList.add('show');
             this.setMessage({ title: title, msg: msg, rem: remetente, uniqueid: this.uid() });
-            this.addParticipation();           
+            this.addParticipation();
         },
 
         onInputblur() {
@@ -848,6 +849,10 @@ export default {
             transform-origin: left center;
             transform: translateX(-100%) scale(1.3);
             opacity: 0;
+
+            @media only screen and (max-width: 768px) {
+                left: -34%;
+            }
         }
 
         &.r {
@@ -855,6 +860,10 @@ export default {
             transform-origin: right center;
             transform: translateX(100%) scale(1.3);
             opacity: 0;
+
+            @media only screen and (max-width: 768px) {
+                right: -30%;
+            }
         }
 
         &.show {
@@ -886,6 +895,10 @@ export default {
 
         &.show {
             transform: translate(calc(-50% + 310px), calc(-50% + 160px)) scale(1);
+
+            @media only screen and (max-width: 768px) {
+                transform: translate(calc(-50% + 110px), calc(-50% + 40px)) scale(.7);
+            }
         }
 
         p {
@@ -1055,6 +1068,10 @@ export default {
                 cursor: pointer;
                 box-shadow: 0px 4px 0px #7B1920;
 
+                @media only screen and (max-width: 768px) {
+                    box-shadow: none;
+                }
+
                 &.disabled {
                     opacity: .3;
                     pointer-events: none;
@@ -1068,41 +1085,50 @@ export default {
                     }
 
 
-                    @media only screen and (max-width: 580px) {
+                    @media only screen and (max-width: 768px) {
                         margin-left: 0;
+
+                        svg {
+                            transform: scale(-0.7) !important;
+                        }
                     }
                 }
 
                 &.l {
 
-                    @media only screen and (max-width: 580px) {
+                    @media only screen and (max-width: 768px) {
                         transform: rotate(0deg);
+
+                        svg {
+                            transform: scale(-0.7) !important;
+                        }
                     }
                 }
 
                 &:hover {
-                    box-shadow: none;
+                    @media only screen and (min-width: 768px) {
+                        box-shadow: none;
 
-                    svg {
-                        .rect {
-                            fill: #fff;
-                        }
 
-                        .path {
-                            stroke: #F40009;
+
+                        svg {
+                            .rect {
+                                fill: #fff;
+                            }
+
+                            .path {
+                                stroke: #F40009;
+                            }
                         }
                     }
+
                 }
 
-                @media only screen and (max-width: 580px) {
+                @media only screen and (max-width: 768px) {
                     margin: 0;
                     transform: rotate(180deg);
                     width: 50px;
                     height: 42px;
-
-                    svg {
-                        transform: scale(.7) !important;
-                    }
                 }
             }
 
@@ -1181,9 +1207,9 @@ export default {
                 font-size: 96px;
 
                 @media only screen and (max-width: 580px) {
-                    font-size: 36px;
-                    right: 0;
-                    bottom: 0;
+                    font-size: 28px;
+                    right: -20px;
+                    bottom: 7px;
                 }
             }
         }

@@ -185,17 +185,9 @@ export default {
         resize() {
             if (window.innerWidth < 769) {
                 document.getElementById('footer').classList.add('hide');
-                document.querySelector('.lines.r.mobile').classList.add('hide');
-                document.querySelector('.lines.l.mobile').classList.add('hide');
-                document.querySelector('.lines.r.desktop').classList.add('hide');
-                document.querySelector('.lines.l.desktop').classList.add('hide');
             } else {
                 document.getElementById('footer').classList.remove('hide');
                 document.getElementById('footer').classList.remove('social');
-                document.querySelector('.lines.r.mobile').classList.remove('hide');
-                document.querySelector('.lines.l.mobile').classList.remove('hide');
-                document.querySelector('.lines.r.desktop').classList.remove('hide');
-                document.querySelector('.lines.l.desktop').classList.remove('hide');
             }
         },
 
@@ -273,8 +265,8 @@ export default {
     .nav {
         position: absolute;
         left: 0;
-        bottom: 0;
-        background: #F8CF7D;
+        bottom: 8px;
+        background: #b40005;
         height: 70px;
         width: 100%;
         z-index: 1111111;
@@ -283,6 +275,7 @@ export default {
         align-items: center;
         display: none;
         transition: all .3s;
+        color: #fff;
 
         @media only screen and (max-width: 768px) {
             display: flex;
@@ -301,7 +294,7 @@ export default {
 
         a {
             font-family: 'betclic-medium';
-            color: #000;
+            color: #fff;
             padding-right: 15px;
         }
     }
@@ -337,11 +330,19 @@ export default {
                 &.l {
                     left: 0;
                     transform-origin: left center;
+
+                    @media only screen and (max-width: 768px) {
+                        left: -34%;
+                    }
                 }
 
                 &.r {
                     right: 0;
                     transform-origin: right center;
+
+                    @media only screen and (max-width: 768px) {
+                        right: -30%;
+                    }
                 }
             }
 
@@ -376,7 +377,7 @@ export default {
 
                 @media only screen and (max-width: 768px) {
                     font-size: 24px;
-                    margin-bottom: 40px;
+                    margin-bottom: 10px;
                 }
             }
 
@@ -428,6 +429,7 @@ export default {
                         height: 65px;
                         line-height: 65px;
                         font-size: 24px;
+                        margin-bottom: 10px;
                     }
 
                     .scratch {
@@ -497,6 +499,11 @@ export default {
                     svg {
                         height: 90px;
                         width: 340px;
+
+                        @media only screen and (max-width: 580px) {
+                            width: 264px
+                        }
+
                     }
 
                     span {
@@ -511,9 +518,15 @@ export default {
                         text-decoration: none;
                         line-height: 115%;
                         width: 100%;
+
+                        @media only screen and (max-width: 580px) {
+                            font-size: 12px;
+                            line-height: 130%;
+                        }
                     }
 
-                    &.down, &:hover {
+                    &.down,
+                    &:hover {
                         svg {
                             path {
                                 fill-opacity: 1;
