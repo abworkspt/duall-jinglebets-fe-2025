@@ -84,7 +84,7 @@
               d="M1.5 10.2021L10.8867 1.5L236.368 1.49999L245.629 10.208L246.486 53.4658L236.389 62.5L10.9023 62.5L1.5 53.4844L1.5 10.2021Z"
               fill="#810000" fill-opacity="0.8" stroke="#FF0000" stroke-width="3" />
           </svg>
-          <span>Copiar link</span></a>
+          <span ref="thespan">Copiar link</span></a>
         <div class="bottom">
           <p>Queres enviar um novo postal?<br /><a href="#" @click="back()">Clica aqui</a></p>
         </div>
@@ -214,13 +214,13 @@ export default {
       //this.$router.push({ path: 'merrychristmas/' +  this.AppMessage.uniqueid});
       var copyText = this.AppMessage.shareurl;
       var view = this;
-      var text = this.$refs.bt2.innerHTML;
-      this.$refs.bt2.innerHTML = 'Link copiado';
+      var text = this.$refs.thespan.innerHTML;
+      this.$refs.thespan.innerHTML = 'Link copiado';
       this.$refs.bt2.classList.add('copied');
       clearTimeout(this.copiedTimeout);
 
       this.copiedTimeout = setTimeout(function () {
-        view.$refs.bt2.innerHTML = text;
+        view.$refs.thespan.innerHTML = text;
         view.$refs.bt2.classList.remove('copied');
       }, 1000);
 
@@ -236,10 +236,10 @@ export default {
       this.$router.push({ path: '/' });
       document.getElementById('footer').classList.remove('hide');
       document.getElementById('footer').classList.remove('removesocial');
-      document.querySelector('.lines.r.mobile').classList.remove('hide');
+      /*document.querySelector('.lines.r.mobile').classList.remove('hide');
       document.querySelector('.lines.l.mobile').classList.remove('hide');
       document.querySelector('.lines.r.desktop').classList.remove('hide');
-      document.querySelector('.lines.l.desktop').classList.remove('hide');
+      document.querySelector('.lines.l.desktop').classList.remove('hide');*/
     },
 
     switcherino(e) {
@@ -255,17 +255,9 @@ export default {
     resize() {
       if (window.innerWidth < 769) {
         document.getElementById('footer').classList.add('hide');
-        document.querySelector('.lines.r.mobile').classList.add('hide');
-        document.querySelector('.lines.l.mobile').classList.add('hide');
-        document.querySelector('.lines.r.desktop').classList.add('hide');
-        document.querySelector('.lines.l.desktop').classList.add('hide');
       } else {
         document.getElementById('footer').classList.remove('hide');
         document.getElementById('footer').classList.remove('social');
-        document.querySelector('.lines.r.mobile').classList.remove('hide');
-        document.querySelector('.lines.l.mobile').classList.remove('hide');
-        document.querySelector('.lines.r.desktop').classList.remove('hide');
-        document.querySelector('.lines.l.desktop').classList.remove('hide');
       }
     },
 
@@ -665,7 +657,11 @@ export default {
 
         &.copy {
           &.copied {
-            background: green;
+            svg {
+              path {
+                fill: #456f45;
+              }
+            }
           }
         }
 
