@@ -62,7 +62,7 @@
                     <input type="text" placeholder="Remetente" class="remetente" ref="inputremetente"
                         @blur="onInputblur()" />
 
-                    <!--<Checkbox v-model="response" />-->
+                    <div ref="recaptcha"></div>
 
                     <a href="#" ref="bt3" class="submit" @click="submitPostal($event)"
                         @mousedown="this.$refs.bt3.classList.add('down')"
@@ -118,16 +118,17 @@ import gsap from 'gsap';
 import { Draggable } from "gsap/Draggable";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { mapActions, mapGetters } from 'vuex';
-//import { Checkbox } from 'vue-recaptcha';
 import axios from 'axios';
 
 export default {
 
-    components: { /*Checkbox */ },
+    inject: ["animateFrames"],
+
 
     data() {
         return {
             response: '',
+            widgetId: null,
 
             imageRows: [
                 [
@@ -292,6 +293,20 @@ export default {
 
         if (window.innerWidth < 768) {
             document.getElementById('footer').classList.add('hide');
+        }
+
+        if (window.grecaptcha) {
+            window.grecaptcha.ready(() => {
+                this.widgetId = window.grecaptcha.render(this.$refs.recaptcha, {
+                    sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ',
+                    callback: (token) => {
+                        this.response = token      // aqui ficas com o token
+                    },
+                    'expired-callback': () => {
+                        this.response = ''
+                    }
+                })
+            })
         }
     },
 
@@ -637,6 +652,7 @@ export default {
             this.$refs.balloon.classList.add('show');
 
             this.setPID({ pid: chosenDiv.getAttribute('iid') });
+            this.animateFrames()
         },
 
         centerSlider(iid) {
@@ -709,6 +725,7 @@ export default {
             this.$refs.balloon.classList.add('hide');
             this.$refs.nav.classList.add('hide');
             this.$refs.pagination.classList.add('hide');
+            this.animateFrames()
 
             this.$refs.sliderImages.querySelectorAll('.sliderimg').forEach((div) => {
                 if (!div.classList.contains('selected')) {
@@ -758,15 +775,17 @@ export default {
                 return;
             }
 
-            if (!this.response) {
-                //this.$refs.submiterror.innerHTML = "Captcha inválido";
-                //return;
-            }
+           /* if (!this.response) {
+                this.$refs.submiterror.innerHTML = "Captcha inválido";
+                return;
+            }*/
 
             this.$refs.submiterror.innerHTML = "";
             this.$refs.submitloader.classList.add('show');
             this.setMessage({ title: title, msg: msg, rem: remetente, uniqueid: this.uid() });
-            this.addParticipation();
+            //this.addParticipation();
+            this.$router.push({ path: 'finish' })
+            this.animateFrames();
         },
 
         onInputblur() {

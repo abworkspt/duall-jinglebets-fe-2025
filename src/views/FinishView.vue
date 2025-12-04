@@ -18,49 +18,73 @@
     </div>
 
     <div class="col l" ref="coll">
+      <img class="forms l" src="@/assets/images/home_forms_left.png" />
+      <img class="forms r" src="@/assets/images/home_forms_right.png" />
+
       <div class="center">
-        <img class="logo" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
-        <p>partilha com os teus amigos<br />o teu postal</p>
+        <img class="finishlogo" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
+        <p>partilha o postal<br>com os teus amigos<br>e ajuda-os a ganhar<br>uma freebet!</p>
 
         <div class="social">
           <a href="#" target="_blank" @click="downloadVideo($event)">
-            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M5.88901 0.0498047H14.574C17.3639 0.0498047 19.6588 2.25817 19.6588 4.94295V13.257C19.6588 15.9418 17.3639 18.1502 14.574 18.1502H5.88901C3.09908 18.1502 0.80423 15.9418 0.80423 13.257V4.94295C0.80423 2.25817 3.09908 0.0498047 5.88901 0.0498047ZM15.2936 3.21102C15.8787 3.21102 16.3737 3.68744 16.3737 4.25043C16.3737 4.81342 15.8787 5.28985 15.2936 5.28985C14.6639 5.28985 14.2135 4.81342 14.2135 4.25043C14.2135 3.68744 14.6633 3.21102 15.2936 3.21102ZM10.2088 4.16387H10.2542C13.0441 4.16387 15.3842 6.41583 15.3842 9.10061C15.3842 11.8284 13.0441 14.0374 10.2542 14.0374H10.2088C7.41891 14.0374 5.12406 11.829 5.12406 9.10061C5.12406 6.41583 7.41891 4.16387 10.2088 4.16387ZM10.2088 5.85284H10.2542C12.0992 5.85284 13.6291 7.32508 13.6291 9.10061C13.6291 10.9191 12.0992 12.3914 10.2542 12.3914H10.2088C8.36377 12.3914 6.83387 10.9191 6.83387 9.10061C6.83387 7.32508 8.36377 5.85284 10.2088 5.85284ZM5.93432 1.60924H14.5287C16.4637 1.60924 18.0382 3.12508 18.0382 4.98655V13.214C18.0382 15.0761 16.463 16.5914 14.5287 16.5914H5.93432C3.99929 16.5914 2.42474 15.0755 2.42474 13.214V4.98655C2.42474 3.12445 3.99995 1.60924 5.93432 1.60924Z"
-                fill="white" />
+
+            <svg width="54" height="51" viewBox="0 0 54 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="53.0615" height="50.939" fill="#F40009" />
+              <g clip-path="url(#clip0_4024_1410)">
+                <path
+                  d="M33.8811 10.1357L34.125 10.1396C38.4196 10.2723 41.8606 13.7934 41.8645 18.1193V32.8811L41.8606 33.125C41.7279 37.4196 38.2069 40.8606 33.8809 40.8645H19.1192L18.8752 40.8606C14.5807 40.7279 11.1397 37.2069 11.1357 32.8809V18.1192L11.1396 17.8752C11.2723 13.5807 14.7934 10.1397 19.1193 10.1357H33.8811ZM33.8811 12.0788H19.1192L18.8977 12.0828C15.6643 12.1993 13.0788 14.8573 13.0788 18.1192V32.8811L13.0828 33.1025C13.1993 36.3359 15.8573 38.9215 19.1192 38.9215H33.8811L34.1025 38.9175C37.3359 38.8009 39.9215 36.1429 39.9215 32.8811V18.1192L39.9175 17.8977C39.8009 14.6643 37.1429 12.0788 33.8811 12.0788ZM26.5 16.7786L26.757 16.7825C31.4531 16.9227 35.2173 20.7712 35.2216 25.5002C35.2216 30.3169 31.3169 34.2216 26.5001 34.2216C21.6834 34.2216 17.7786 30.3169 17.7786 25.5001C17.7786 20.7694 21.5451 16.9183 26.243 16.7823L26.5 16.7786ZM26.5001 18.7216C22.7565 18.7216 19.7216 21.7565 19.7216 25.5001C19.7216 29.2438 22.7565 32.2786 26.5001 32.2786C30.2438 32.2786 33.2786 29.2438 33.2786 25.5001C33.2786 21.7565 30.2438 18.7216 26.5001 18.7216ZM34.9882 14.9334C35.7286 14.9334 36.3288 15.5336 36.3288 16.2739C36.3288 17.0143 35.7286 17.6145 34.9882 17.6145C34.2478 17.6145 33.6476 17.0143 33.6476 16.2739C33.6476 15.5336 34.2478 14.9334 34.9882 14.9334Z"
+                  fill="white" />
+              </g>
+              <defs>
+                <clipPath id="clip0_4024_1410">
+                  <rect width="31" height="31" fill="white" transform="translate(11 10)" />
+                </clipPath>
+              </defs>
             </svg>
+
           </a>
           <a :href="'https://www.facebook.com/sharer.php?u=' + shareUrl" @click="share($event, 'facebook')">
-            <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="54" height="51" viewBox="0 0 54 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="53.0615" height="50.939" fill="#F40009" />
               <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M6.26446 5.94891V4.43373C6.26446 3.70809 6.72567 3.53315 7.05224 3.53315H9.04459V0.295898H6.29454C3.24656 0.295898 2.56191 2.69645 2.56191 4.24358V5.94891H0.792999V9.72317H2.57767V19.1504H6.13126V9.72317H8.76243L8.88131 8.23841L9.08899 5.94891H6.26446Z"
+                d="M28.9237 19.628V17.4959C28.9237 16.4749 29.5726 16.2287 30.0322 16.2287H32.8357V11.6735H28.966C24.6771 11.6735 23.7137 15.0513 23.7137 17.2283V19.628H21.2246V24.9388H23.7359V38.2042H28.7362V24.9388H32.4386L32.6059 22.8496L32.8981 19.628H28.9237Z"
                 fill="white" />
             </svg>
           </a>
           <a target="_blank" :href="'https://twitter.com/share?url=' + shareUrl + '&text=' + shareText"
             @click="share($event, 'twitter')">
-            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <svg width="54" height="51" viewBox="0 0 54 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="53.0615" height="50.939" fill="#F40009" />
               <path
-                d="M11.3001 7.71013L17.7576 0.0498047H16.2274L10.6203 6.70116L6.14197 0.0498047H0.976746L7.74887 10.1078L0.976746 18.1409H2.50705L8.42824 11.1168L13.1577 18.1409H18.3229L11.2997 7.71013H11.3001ZM9.20411 10.1964L8.51795 9.19489L3.05845 1.22543H5.40891L9.81479 7.65704L10.501 8.6586L16.2281 17.0187H13.8776L9.20411 10.1968V10.1964Z"
+                d="M29.3837 23.5138L38.4702 12.7347H36.317L28.4271 22.094L22.1256 12.7347H14.8574L24.3867 26.8877L14.8574 38.1912H17.0108L25.3426 28.3074L31.9976 38.1912H39.2657L29.3831 23.5138H29.3837ZM26.4344 27.0124L25.4689 25.603L17.7866 14.389H21.094L27.2937 23.4391L28.2592 24.8484L36.318 36.6121H33.0106L26.4344 27.0129V27.0124Z"
                 fill="white" />
             </svg>
+
           </a>
 
           <a target="_blank" :href="'https://twitter.com/share?url=' + shareUrl + '&text=' + shareText"
             @click="share($event, 'whatsapp')">
-            <svg height="100%" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
-              version="1.1" viewBox="0 0 512 512" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-              xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <svg width="54" height="51" viewBox="0 0 54 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="53.0615" height="50.939" fill="#F40009" />
               <path
-                d="M373.295,307.064c-6.37,-3.188 -37.687,-18.596 -43.526,-20.724c-5.838,-2.126 -10.084,-3.187 -14.331,3.188c-4.246,6.376 -16.454,20.725 -20.17,24.976c-3.715,4.251 -7.431,4.785 -13.8,1.594c-6.37,-3.187 -26.895,-9.913 -51.225,-31.616c-18.935,-16.89 -31.72,-37.749 -35.435,-44.126c-3.716,-6.377 -0.397,-9.824 2.792,-13c2.867,-2.854 6.371,-7.44 9.555,-11.16c3.186,-3.718 4.247,-6.377 6.37,-10.626c2.123,-4.252 1.062,-7.971 -0.532,-11.159c-1.591,-3.188 -14.33,-34.542 -19.638,-47.298c-5.171,-12.419 -10.422,-10.737 -14.332,-10.934c-3.711,-0.184 -7.963,-0.223 -12.208,-0.223c-4.246,0 -11.148,1.594 -16.987,7.969c-5.838,6.377 -22.293,21.789 -22.293,53.14c0,31.355 22.824,61.642 26.009,65.894c3.185,4.252 44.916,68.59 108.816,96.181c15.196,6.564 27.062,10.483 36.312,13.418c15.259,4.849 29.145,4.165 40.121,2.524c12.238,-1.827 37.686,-15.408 42.995,-30.286c5.307,-14.882 5.307,-27.635 3.715,-30.292c-1.592,-2.657 -5.838,-4.251 -12.208,-7.44m-116.224,158.693l-0.086,0c-38.022,-0.015 -75.313,-10.23 -107.845,-29.535l-7.738,-4.592l-80.194,21.037l21.405,-78.19l-5.037,-8.017c-21.211,-33.735 -32.414,-72.726 -32.397,-112.763c0.047,-116.825 95.1,-211.87 211.976,-211.87c56.595,0.019 109.795,22.088 149.801,62.139c40.005,40.05 62.023,93.286 62.001,149.902c-0.048,116.834 -95.1,211.889 -211.886,211.889m180.332,-392.224c-48.131,-48.186 -112.138,-74.735 -180.335,-74.763c-140.514,0 -254.875,114.354 -254.932,254.911c-0.018,44.932 11.72,88.786 34.03,127.448l-36.166,132.102l135.141,-35.45c37.236,20.31 79.159,31.015 121.826,31.029l0.105,0c140.499,0 254.87,-114.366 254.928,-254.925c0.026,-68.117 -26.467,-132.166 -74.597,-180.352"
-                id="WhatsApp-Logo" fill="white" />
+                d="M37.3665 13.6401C35.9452 12.1629 34.2535 10.992 32.3898 10.1955C30.5259 9.39888 28.5271 8.99256 26.5097 9.0001C23.8128 9.00282 21.1637 9.7365 18.828 11.1277C16.4923 12.5188 14.5519 14.5186 13.2011 16.9268C11.8503 19.335 11.1366 22.0671 11.1314 24.8493C11.1262 27.6317 11.8296 30.3664 13.1714 32.78L11 41L19.1426 38.8C21.391 40.0904 23.9174 40.7782 26.4903 40.8C30.5804 40.8002 34.5049 39.1336 37.4095 36.1632C40.3143 33.193 41.9641 29.1592 42 24.9401C41.9864 22.8347 41.57 20.7528 40.7749 18.8137C39.9799 16.8746 38.8215 15.1165 37.3665 13.6401ZM26.5097 38.06C24.2176 38.0616 21.9673 37.426 19.9956 36.22L19.5303 35.92L14.7029 37.24L15.9825 32.38L15.6723 31.88C14.0229 29.1334 13.4074 25.8581 13.9422 22.6745C14.4771 19.491 16.1252 16.6204 18.5744 14.6065C21.0235 12.5927 24.1036 11.5754 27.2311 11.7475C30.3586 11.9195 33.3165 13.2689 35.5441 15.5401C37.9791 17.9964 39.373 21.3471 39.4215 24.8601C39.3909 28.3718 38.0169 31.729 35.5988 34.2012C33.1808 36.6732 29.9141 38.0602 26.5097 38.06ZM33.5084 28.1801C33.1207 27.9801 31.2402 27.0201 30.8912 26.9001C30.5422 26.7801 30.2708 26.7001 30.0188 27.1001C29.6396 27.6363 29.2316 28.1503 28.7974 28.64C28.5841 28.92 28.3515 28.94 27.9637 28.64C25.753 27.7389 23.9112 26.0789 22.7486 23.9401C22.3415 23.2401 23.1363 23.2801 23.873 21.7801C23.9275 21.6719 23.9558 21.5519 23.9558 21.4301C23.9558 21.3083 23.9275 21.1883 23.873 21.0801C23.873 20.8801 23.0006 18.9201 22.6904 18.1401C22.3802 17.3601 22.07 17.4801 21.818 17.4601H21.0619C20.866 17.4632 20.673 17.5094 20.4958 17.5956C20.3186 17.6818 20.1613 17.8061 20.0344 17.9601C19.5994 18.3964 19.2601 18.9239 19.0394 19.5069C18.8187 20.09 18.7216 20.7151 18.7548 21.3401C18.8764 22.8363 19.4226 24.2623 20.3252 25.4401C21.9774 27.9917 24.2416 30.0586 26.8974 31.44C28.2904 32.2788 29.9092 32.6296 31.5116 32.44C32.0451 32.3308 32.5505 32.107 32.9947 31.783C33.439 31.4592 33.8122 31.0424 34.0901 30.56C34.3475 29.9712 34.4286 29.3166 34.3227 28.68C34.1482 28.48 33.8962 28.3801 33.5084 28.1801Z"
+                fill="white" />
             </svg>
+
           </a>
         </div>
 
         <a href="#" class="copy bt" ref="bt2" @mousedown="this.$refs.bt2.classList.add('down')"
           @mouseup="this.$refs.bt2.classList.remove('down')" @mouseleave="this.$refs.bt2.classList.remove('down')"
-          @click="onClickCopyCode($event)">Copiar link</a>
+          @click="onClickCopyCode($event)">
+          <svg width="248" height="64" viewBox="0 0 248 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1.5 10.2021L10.8867 1.5L236.368 1.49999L245.629 10.208L246.486 53.4658L236.389 62.5L10.9023 62.5L1.5 53.4844L1.5 10.2021Z"
+              fill="#810000" fill-opacity="0.8" stroke="#FF0000" stroke-width="3" />
+          </svg>
+          <span>Copiar link</span></a>
         <div class="bottom">
           <p>Queres enviar um novo postal?<br /><a href="#" @click="back()">Clica aqui</a></p>
         </div>
@@ -322,14 +346,11 @@ export default {
 
 <style lang="scss">
 #finish {
-  background: #224040;
-  background-image: url('@/assets/images/choose_bg.png');
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
   display: block;
   position: relative;
   z-index: 1;
+  $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
 
   .popup {
     position: absolute;
@@ -467,6 +488,27 @@ export default {
     }
 
     &.l {
+      position: relative;
+
+      .forms {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: auto;
+        pointer-events: none;
+        transform: translateX(0) scale(1);
+        transition: $anime;
+
+        &.l {
+          left: 0;
+          transform-origin: left center;
+        }
+
+        &.r {
+          right: 0;
+          transform-origin: right center;
+        }
+      }
 
       @media only screen and (max-width: 768px) {
         width: 100%;
@@ -487,26 +529,23 @@ export default {
         @media only screen and (max-width: 580px) {}
 
         a {
-          border: 1px solid #fff;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
+
           margin: 0 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-
-          svg {
-            width: 25px;
-            height: 25px;
-          }
+          box-shadow: 0px 4px 0px #7B1920;
 
           &:hover {
-            background: #fff;
+            box-shadow: none;
 
             svg {
               path {
-                fill: #8E0005;
+                fill: #F40009;
+              }
+
+              rect {
+                fill: #fff;
               }
             }
           }
@@ -535,9 +574,9 @@ export default {
         }
       }
 
-      .logo {
-        max-width: 536px;
-        margin: 0 auto 30px auto;
+      .finishlogo {
+        max-width: 488px;
+        margin: 0 auto 40px auto;
         width: 90%;
         cursor: pointer;
 
@@ -547,9 +586,9 @@ export default {
       }
 
       p {
-        font-family: 'betclic-condensed-regular';
+        font-family: 'betclic-extra-bold';
         color: #fff;
-        font-size: 38px;
+        font-size: 32px;
         font-weight: 500;
         line-height: 90%;
         text-transform: uppercase;
@@ -563,10 +602,12 @@ export default {
       .bottom {
         margin-top: 50px;
 
+
         p {
           font-family: 'betclic-medium';
           font-size: 18px;
           margin-bottom: 20px;
+          text-transform: none;
 
           @media only screen and (max-width: 768px) {
             font-size: 16px;
@@ -574,45 +615,55 @@ export default {
         }
 
         a {
-          color: #F40009;
+          color: #fff;
           margin-top: 10px;
           display: block;
         }
       }
 
       .bt {
-        width: 331px;
-        height: 55px;
-        background: #F8CF7D;
         text-transform: uppercase;
-        font-family: 'betclic-regular';
-        color: #000;
+        font-family: 'betclic-bold-italic';
         text-decoration: none;
         font-size: 19.28px;
-        font-style: italic;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin: auto;
         margin-bottom: 15px;
-        box-shadow: -4px 4px 0px #000000;
+        color: #fff;
+        position: relative;
+        display: block;
+
+        span {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+        }
+
+        &:hover {
+          svg {
+            path {
+              fill-opacity: 1;
+            }
+          }
+        }
 
         @media only screen and (max-width: 768px) {
-          width: 290px;
-          height: 55px;
+          svg {
+            width: 290px;
+            height: 55px;
+          }
         }
 
         &.down {
-          box-shadow: none;
-          position: relative;
-          top: 2px;
+          svg {
+            path {
+              fill-opacity: 1;
+            }
+          }
         }
 
         &.copy {
-          background: #F40009;
-          color: #fff;
-
           &.copied {
             background: green;
           }
@@ -628,7 +679,7 @@ export default {
       right: 0;
       left: auto;
       background: #000;
-      background-image: url('@/assets/images/home_bg.jpg');
+      background-image: url('@/assets/images/finished_bg.png');
       background-size: cover;
       background-position: center;
 
@@ -636,7 +687,7 @@ export default {
         left: 0;
         right: auto;
         width: 100%;
-        transition: all .3s ease-out;
+        transition: $anime;
 
         &.move {
           transform: translateX(-100%);
@@ -786,20 +837,24 @@ export default {
   &.v-enter-from {
     .col {
       &.r {
-        width: 100%;
+        transform: translateX(100%);
+      }
+    }
+
+    .forms {
+      &.l {
+        transform: translateX(-100%) scale(1.3);
+      }
+
+      &.r {
+        transform: translateX(100%) scale(1.3);
       }
     }
   }
 
   &.v-enter-to {
     .col {
-      &.r {
-        width: 50%;
-
-        @media only screen and (max-width: 768px) {
-          width: 100%;
-        }
-      }
+      &.r {}
     }
 
   }

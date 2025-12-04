@@ -1,10 +1,3 @@
-<script setup>
-import { RouterView } from 'vue-router';
-import TheFooter from './components/TheFooter.vue';
-//import { useRecaptchaProvider } from 'vue-recaptcha';
-//useRecaptchaProvider();
-</script>
-
 <template>
   <div id="app" :class="routeClass">
 
@@ -64,9 +57,13 @@ import TheFooter from './components/TheFooter.vue';
 
 <script>
 
-import audio from '@/assets/audio/audio.mp3';
+import { provide } from "vue"
+import audio from '@/assets/audio/audio.mp3'
+import TheFooter from './components/TheFooter.vue'
 
 export default {
+
+  components: { TheFooter },
 
   data() {
     return {
@@ -75,6 +72,12 @@ export default {
       frameLeftMoving: false,
       frameRightMoving: false,
       frameBottomMoving: false
+    }
+  },
+
+  provide() {
+    return {
+      animateFrames: this.animateFrames
     }
   },
 
@@ -294,6 +297,10 @@ html {
   &.route-choose .logo {
     top: 30px;
     transform: translate(-50%, -40px) scale(0.39);
+  }
+
+  &.route-finish .logo {
+    transform: translate(-50%, -40px) scale(0);
   }
 
   .logo-enter-from {
