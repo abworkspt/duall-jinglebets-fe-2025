@@ -116,7 +116,7 @@ export default {
     transition: $anime;
 
     &.l {
-      transform: translate(calc(-150% - 50px), calc(-50% + 160px));
+      transform: translate(calc(-150% - 50px), calc(-50% + 120px));
       z-index: 1;
       width: 351px;
       height: 590px;
@@ -127,7 +127,7 @@ export default {
     }
 
     &.r {
-      transform: translate(calc(50% + 50px), calc(-50% + 160px));
+      transform: translate(calc(50% + 50px), calc(-50% + 120px));
       z-index: 1;
       width: 349px;
       height: 590px;
@@ -138,9 +138,9 @@ export default {
     }
 
     &.center {
-      top: auto;
+      top: 50%;
       bottom: 0;
-      transform: translate(-50%, -160px);
+      transform: translate(-50%, -166px);
       width: 369px;
       height: 559px;
 

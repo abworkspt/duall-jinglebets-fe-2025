@@ -176,7 +176,7 @@ html {
 #app {
   width: 100%;
   height: 100dvh;
-  min-height: 900px;
+  min-height: 800px;
   position: relative;
   overflow: hidden;
   $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
@@ -282,7 +282,7 @@ html {
     left: 50%;
     top: 70px;
     transform: translate(-50%, 0%);
-    max-width: 774px;
+    max-width: 575px;
     width: 90%;
     transition: $anime;
     z-index: 10;

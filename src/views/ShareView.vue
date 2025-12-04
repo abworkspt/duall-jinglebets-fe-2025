@@ -6,7 +6,7 @@
 
             <div class="center">
                 <img class="logoshare" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
-                <p>Descobre se<br />este postal tem<br />algum presente<br />escondido</p>
+                <p class="feedback" ref="feedback" v-html="feedbackText"></p>
 
                 <div class="bet">
                     <p class="note">{{ codeText }}</p>
@@ -106,7 +106,7 @@ export default {
             vidid: null,
             code: '',
             codeText: 'Clica em baixo e vê se te saiu a sorte grande.',
-            codeTextWin: 'Parabéns. Saiu-te a sorte grande!',
+            codeTextWin: 'Parabéns. <br />Saiu-te <br />a sorte grande!',
             videos: [
                 postal1,
                 postal2,
@@ -128,7 +128,13 @@ export default {
                 postal18,
                 postal19,
                 postal20,
-            ]
+            ],
+            feedbackText: 'Descobre se<br />este postal tem<br />algum presente<br />escondido',
+            frasesSemPremio: [
+                'És um azarado <br />fofo! Tenta no <br />próximo natal.',
+                'Desculpa mas <br />este não foi o teu <br />dia de sorte!',
+                'És um zero à <br />esquerda na <br />sorte querido.'
+            ],
         };
     },
 
@@ -243,9 +249,18 @@ export default {
             this.$refs.scratchbtn.classList.add('deactivated');
 
             if (this.code) {
-                this.codeText = 'Parabéns. Saiu-te a sorte grande!';
+                this.$refs.feedback.innerHTML = this.codeTextWin;
                 this.$refs.notebot.classList.remove('hide');
             } else {
+
+                const frases = this.frasesSemPremio;
+                const randomIndex = Math.floor(Math.random() * frases.length);
+                const frase = frases[randomIndex];
+
+                if (this.$refs.feedback) {
+                    this.$refs.feedback.innerHTML = frase; // aceita HTML
+                }
+
                 this.code = 'Sem prémio';
             }
         }
@@ -364,6 +379,10 @@ export default {
                 @media only screen and (max-width: 768px) {
                     width: 260px;
                 }
+            }
+
+            .feedback {
+                height: 110px;
             }
 
             p {
