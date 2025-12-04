@@ -303,6 +303,10 @@ html {
     transform: translate(-50%, -40px) scale(0);
   }
 
+  &.route-share .logo {
+    display: none;
+  }
+
   .logo-enter-from {
     transform: translate(-50%, 600px) scale(0.8); // começa cá em baixo
   }

@@ -1,9 +1,12 @@
 <template>
     <section id="share">
         <div class="col l" ref="coll">
+            <img class="forms l" src="@/assets/images/home_forms_left.png" />
+            <img class="forms r" src="@/assets/images/home_forms_right.png" />
+
             <div class="center">
-                <img class="logo" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
-                <p>Descobre se este postal<br />tem algum presente escondido</p>
+                <img class="logoshare" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
+                <p>Descobre se<br />este postal tem<br />algum presente<br />escondido</p>
 
                 <div class="bet">
                     <p class="note">{{ codeText }}</p>
@@ -30,7 +33,16 @@
                     <a class="link" ref="bt5" href="https://www.betclic.pt/scp-jinglebet24" target="_blank"
                         @mousedown="this.$refs.bt5.classList.add('down')"
                         @mouseup="this.$refs.bt5.classList.remove('down')"
-                        @mouseleave="this.$refs.bt5.classList.remove('down')">Descobre o Jinglebet e todos os<br />presentes de Natal que temos para ti</a>
+                        @mouseleave="this.$refs.bt5.classList.remove('down')">
+
+                        <svg width="248" height="64" viewBox="0 0 248 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.5 10.2021L10.8867 1.5L236.368 1.49999L245.629 10.208L246.486 53.4658L236.389 62.5L10.9023 62.5L1.5 53.4844L1.5 10.2021Z"
+                                fill="#810000" fill-opacity="0.8" stroke="#FF0000" stroke-width="3" />
+                        </svg>
+                        <span>Descobre o Jinglebet e todos os<br />presentes de Natal que temos para ti</span>
+                    </a>
                     <p>Queres enviar um novo postal?<br /><a href="#" @click="$router.push({ path: '/' })">Clica
                             aqui</a></p>
                 </div>
@@ -252,14 +264,11 @@ export default {
 
 <style lang="scss">
 #share {
-    background: #224040;
-    background-image: url('@/assets/images/choose_bg.png');
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     display: block;
     position: relative;
     z-index: 1;
+    $anime: all 1s cubic-bezier(.6, 1.43, .57, 1.01);
 
     .nav {
         position: absolute;
@@ -316,6 +325,26 @@ export default {
 
         &.l {
 
+            .forms {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: auto;
+                pointer-events: none;
+                transform: translateX(0) scale(1);
+                transition: $anime;
+
+                &.l {
+                    left: 0;
+                    transform-origin: left center;
+                }
+
+                &.r {
+                    right: 0;
+                    transform-origin: right center;
+                }
+            }
+
             @media only screen and (max-width: 768px) {
                 width: 100%;
                 transform: translateX(100%);
@@ -326,8 +355,8 @@ export default {
                 }
             }
 
-            .logo {
-                max-width: 536px;
+            .logoshare {
+                max-width: 488px;
                 margin: 0 auto 30px auto;
                 cursor: pointer;
 
@@ -337,13 +366,13 @@ export default {
             }
 
             p {
-                font-family: 'betclic-condensed-regular';
+                font-family: 'betclic-extra-bold';
                 color: #fff;
-                font-size: 38px;
+                font-size: 32px;
                 font-weight: 500;
                 line-height: 90%;
                 text-transform: uppercase;
-                margin-bottom: 65px;
+                margin-bottom: 25px;
 
                 @media only screen and (max-width: 768px) {
                     font-size: 24px;
@@ -354,7 +383,7 @@ export default {
             .bet {
                 p {
                     font-family: 'betclic-regular';
-                    color: #F3B763;
+                    color: #fff;
                     font-size: 16px;
                     font-weight: 400;
                     margin-bottom: 30px;
@@ -367,6 +396,10 @@ export default {
                 }
 
                 .note {
+                    max-width: 220px;
+                    margin: 0 auto 25px auto;
+                    line-height: 115%;
+
                     &.bottom {
                         opacity: 1;
                         margin-top: -70px;
@@ -457,28 +490,35 @@ export default {
                 }
 
                 .link {
-                    width: 310px;
-                    height: 55px;
-                    background: #F40009;
-                    text-transform: uppercase;
-                    font-family: "betclic-regular";
-                    color: #fff;
-                    text-decoration: none;
-                    font-size: 14px;
-                    font-style: italic;
-                    font-weight: bold;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: -6px 6px 0px #000000;
+                    position: relative;
+                    display: block;
                     margin: 0px auto 30px;
-                    padding: 6px 0 3px 0px;
-                    line-height: 18px;
 
-                    &.down {
-                        box-shadow: none;
-                        position: relative;
-                        top: 2px;
+                    svg {
+                        height: 90px;
+                        width: 340px;
+                    }
+
+                    span {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        font-family: 'betclic-bold';
+                        color: #fff;
+                        text-decoration: none;
+                        line-height: 115%;
+                        width: 100%;
+                    }
+
+                    &.down, &:hover {
+                        svg {
+                            path {
+                                fill-opacity: 1;
+                            }
+                        }
                     }
 
                     @media only screen and (max-width: 768px) {}
@@ -492,6 +532,7 @@ export default {
                     font-family: 'betclic-medium';
                     font-size: 18px;
                     margin-bottom: 20px;
+                    text-transform: none;
 
                     @media only screen and (max-width: 768px) {
                         font-size: 16px;
@@ -499,8 +540,9 @@ export default {
                 }
 
                 a {
-                    color: #F40009;
-                    margin-top: 10px;
+                    text-transform: none;
+                    color: #fff;
+                    margin-top: 5px;
                     display: block;
                 }
             }
@@ -549,9 +591,10 @@ export default {
             right: 0;
             left: auto;
             background: #000;
-            background-image: url('@/assets/images/home_bg.jpg');
+            background-image: url('@/assets/images/finished_bg.png');
             background-size: cover;
             background-position: center;
+            transition: $anime;
 
             @media only screen and (max-width: 768px) {
                 left: 0;
@@ -746,42 +789,19 @@ export default {
     &.v-enter-from {
         .col {
             &.r {
-                width: 100%;
+                transform: translateX(100%);
             }
         }
-    }
 
-    &.v-enter-to {
-        .col {
+        .forms {
+            &.l {
+                transform: translateX(-100%) scale(1.3);
+            }
+
             &.r {
-                width: 50%;
-
-                @media only screen and (max-width: 768px) {
-                    width: 100%;
-                }
+                transform: translateX(100%) scale(1.3);
             }
         }
-
     }
-
-    &.v-leave-from {}
-
-    &.v-leave-to {}
-
-    &.v-enter-active {
-
-        transition: all 2s;
-
-        .col {
-            &.r {
-                transition: all 1s cubic-bezier(0.365, 1.650, 0.575, 0.830);
-                transition-timing-function: cubic-bezier(0.365, 1.650, 0.575, 0.830);
-                transition-delay: .2s;
-            }
-        }
-
-    }
-
-    &.v-leave-active {}
 }
 </style>

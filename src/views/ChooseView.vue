@@ -783,9 +783,7 @@ export default {
             this.$refs.submiterror.innerHTML = "";
             this.$refs.submitloader.classList.add('show');
             this.setMessage({ title: title, msg: msg, rem: remetente, uniqueid: this.uid() });
-            //this.addParticipation();
-            this.$router.push({ path: 'finish' })
-            this.animateFrames();
+            this.addParticipation();           
         },
 
         onInputblur() {
@@ -804,6 +802,7 @@ export default {
 
             this.setShareURL({ url: response.data.link });
             this.$router.push({ path: 'finish' })
+            this.animateFrames();
         },
 
         uid() {
