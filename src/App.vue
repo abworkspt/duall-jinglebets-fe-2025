@@ -16,7 +16,8 @@ import audio from '@/assets/audio/audio.mp3'
     </Transition>
 
     <Transition name="logo" appear>
-      <img @click="$router.push({ path: '/' })" class="logo" src="@/assets/images/home_logo.png" alt="Logo" />
+      <img ref="logo" @click="$router.push({ path: '/' })" class="logo" src="@/assets/images/home_logo.png"
+        alt="Logo" />
     </Transition>
 
 
@@ -80,7 +81,8 @@ export default {
 
   provide() {
     return {
-      animateFrames: this.animateFrames
+      animateFrames: this.animateFrames,
+      resizeLogo: this.resizeLogo
     }
   },
 
@@ -104,7 +106,19 @@ export default {
 
   methods: {
 
+    resizeLogo(size) {
+      console.log('resizeLogo');
+      if (size == 'small') {
+        this.$refs.logo.classList.add('small');
+      } else {
+        this.$refs.logo.classList.remove('small');
+      }
+    },
+
     animateFrames() {
+      ~
+      console.log('ANIMATE FRAMES');
+
       const duration = 800
 
       // reset rápido para reiniciar animação
@@ -304,11 +318,18 @@ html {
   &.route-choose .logo {
     top: 60px;
     transform: translate(-50%, -40px) scale(0.5);
+
+    &.small {
+      top: 15px;
+      transform: translate(-50%, -40px) scale(.4);
+    }
   }
 
   &.route-finish .logo {
     top: 60px;
     transform: translate(-50%, -40px) scale(0);
+
+
   }
 
   &.route-share .logo {

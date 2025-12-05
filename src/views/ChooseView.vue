@@ -123,7 +123,7 @@ import axios from 'axios';
 
 export default {
 
-    inject: ["animateFrames"],
+    inject: ["animateFrames", "resizeLogo"],
 
 
     data() {
@@ -655,6 +655,7 @@ export default {
 
             this.setPID({ pid: chosenDiv.getAttribute('iid') });
             this.animateFrames()
+            this.resizeLogo('small');
         },
 
         centerSlider(iid) {
@@ -795,7 +796,7 @@ export default {
         async addParticipation() {
             try {
                 // Mostra loader e limpa erro
-               
+
                 if (this.$refs.submiterror) {
                     this.$refs.submiterror.innerHTML = "";
                 }
@@ -1092,6 +1093,10 @@ export default {
             transition: opacity .3s;
             z-index: 10;
 
+            @media only screen and (max-width: 1200px) {
+                transform: translate(calc(-50% + 360px), -93%);
+            }
+
             &.hide {
                 opacity: 0;
                 pointer-events: none;
@@ -1207,6 +1212,10 @@ export default {
             height: 120px;
             transition: opacity .3s;
             z-index: 10;
+
+            @media only screen and (max-width: 1200px) {
+                transform: translate(calc(-50% - 440px), -50%);
+            }
 
             @media only screen and (max-width: 580px) {
                 width: 40px;
