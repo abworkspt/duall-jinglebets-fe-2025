@@ -152,8 +152,9 @@ export default {
       @media only screen and (max-width: 580px) {
         width: 300px;
         height: 530px;
-        transform: translate(-50%, -39px);
+        transform: translate(-50%, -38px);
         z-index: 100;
+        top: auto;
       }
 
       img {

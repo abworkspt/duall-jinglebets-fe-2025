@@ -5,7 +5,7 @@ const store = createStore({
         return {
             started: false,
             postalurl: 'https://postaisjinglebet.betclic.pt/#/merrychristmas/',
-            crteatevideos: 'https://betclic-jinglebets-stage-680619908f3a.herokuapp.com/create',
+            crteatevideos: 'https://betclic-jinglebets-ff26ba0ae2ec.herokuapp.com/create',
             cmsapi: 'https://abworks.synology.me/betclic-jinglebets/abcms/wp-json/abw',
             messagee: {
                 title: '',

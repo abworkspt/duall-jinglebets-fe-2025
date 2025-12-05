@@ -9,7 +9,7 @@
                 <p class="feedback" ref="feedback" v-html="feedbackText"></p>
 
                 <div class="bet">
-                    <p class="note">{{ codeText }}</p>
+                    <p class="note" ref="note">{{ codeText }}</p>
 
                     <div class="code">
                         <div @click="openScratch()" class="scratch deactivated" ref="scratchbtn">
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="bottom">
-                    <a class="link" ref="bt5" href="https://www.betclic.pt/scp-jinglebet24" target="_blank"
+                    <!--<a class="link" ref="bt5" href="https://www.betclic.pt/scp-jinglebet24" target="_blank"
                         @mousedown="this.$refs.bt5.classList.add('down')"
                         @mouseup="this.$refs.bt5.classList.remove('down')"
                         @mouseleave="this.$refs.bt5.classList.remove('down')">
@@ -42,7 +42,7 @@
                                 fill="#810000" fill-opacity="0.8" stroke="#FF0000" stroke-width="3" />
                         </svg>
                         <span>Descobre o Jinglebet e todos os<br />presentes de Natal que temos para ti</span>
-                    </a>
+                    </a>-->
                     <p>Queres enviar um novo postal?<br /><a href="#" @click="$router.push({ path: '/' })">Clica
                             aqui</a></p>
                 </div>
@@ -247,6 +247,7 @@ export default {
         openScratch() {
             this.$refs.scratchinside.classList.add('hide');
             this.$refs.scratchbtn.classList.add('deactivated');
+            this.$refs.note.classList.add('hide');
 
             if (this.code) {
                 this.$refs.feedback.innerHTML = this.codeTextWin;
@@ -420,9 +421,19 @@ export default {
                     margin: 0 auto 25px auto;
                     line-height: 115%;
 
+                    &.hide {
+                        opacity: 0;
+                    }
+
                     &.bottom {
                         opacity: 1;
-                        margin-top: -70px;
+                        opacity: 1;
+                        position: absolute;
+                        left: 50%;
+                        bottom: 196px;
+                        transform: translateX(-50%);
+                        width: 350px;
+                        max-width: none;
 
                         &.hide {
                             opacity: 0;
@@ -441,7 +452,7 @@ export default {
                     line-height: 85px;
                     margin: auto;
                     position: relative;
-                    margin-bottom: 100px;
+                    margin-bottom: 50px;
 
                     @media only screen and (max-width: 580px) {
                         width: 260px;

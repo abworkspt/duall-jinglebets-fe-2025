@@ -57,6 +57,7 @@
 
             <div class="form" ref="form">
                 <div class="padd">
+                    <input type="text" name="website" ref="honeypot" style="display:none;">
                     <input type="text" placeholder="Título" class="title" ref="inputtitle" @blur="onInputblur()" />
                     <textarea placeholder="Mensagem" class="message" ref="inputmsg" @blur="onInputblur()"></textarea>
                     <input type="text" placeholder="Remetente" class="remetente" ref="inputremetente"
@@ -298,8 +299,8 @@ export default {
         if (window.grecaptcha) {
             window.grecaptcha.ready(() => {
                 this.widgetId = window.grecaptcha.render(this.$refs.recaptcha, {
-                    //sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ',
-                    sitekey: '6Lc-MyEsAAAAACF1ZvHB9jQ-uYZ4J1Q7h5wbEB4T',
+                    //sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ', // localhost
+                    sitekey: '6Lc-MyEsAAAAACF1ZvHB9jQ-uYZ4J1Q7h5wbEB4T',  // abworks.synology.me
                     callback: (token) => {
                         this.response = token      // aqui ficas com o token
                     },
@@ -776,10 +777,10 @@ export default {
                 return;
             }
 
-             if (!this.response) {
-                 this.$refs.submiterror.innerHTML = "Captcha inválido";
-                 return;
-             }
+            if (!this.response) {
+                this.$refs.submiterror.innerHTML = "Captcha inválido";
+                return;
+            }
 
             this.$refs.submiterror.innerHTML = "";
             this.$refs.submitloader.classList.add('show');
@@ -792,18 +793,56 @@ export default {
         },
 
         async addParticipation() {
-            const response = await axios.post(this.AppCMSApi + '/addpart', {
-                title: this.AppMessage.title,
-                msg: this.AppMessage.msg,
-                sender: this.AppMessage.rem,
-                vidid: this.AppMessage.pid,
-                uniqueid: this.AppMessage.uniqueid,
-                cod: this.AppMessage.cod,
-            });
+            try {
+                // Mostra loader e limpa erro
+               
+                if (this.$refs.submiterror) {
+                    this.$refs.submiterror.innerHTML = "";
+                }
 
-            this.setShareURL({ url: response.data.link });
-            this.$router.push({ path: 'finish' })
-            this.animateFrames();
+                const response = await axios.post(this.AppCMSApi + '/addpart', {
+                    title: this.AppMessage.title,
+                    msg: this.AppMessage.msg,
+                    sender: this.AppMessage.rem,
+                    vidid: this.AppMessage.pid,
+                    uniqueid: this.AppMessage.uniqueid,
+                    cod: this.AppMessage.cod,
+                    recaptcha: this.response,
+                    honeypot: this.$refs.honeypot.value
+                });
+
+                if (this.$refs.submitloader) {
+                    this.$refs.submitloader.classList.remove('show');
+                }
+
+                this.setShareURL({ url: response.data.link });
+                this.$router.push({ path: 'finish' });
+                this.animateFrames();
+            } catch (error) {
+                if (this.$refs.submitloader) {
+                    this.$refs.submitloader.classList.remove('show');
+                }
+
+                let message = 'Ocorreu um erro. Tenta novamente mais tarde.';
+
+                if (error.response && error.response.data) {
+                    const data = error.response.data;
+
+                    // Se vier de WP_Error (code / message / data)
+                    if (data.message) {
+                        message = data.message;
+                    }
+
+                    // Se decidires mandar um formato teu, ex.: { success: false, message: '...' }
+                    if (data.error && data.error.message) {
+                        message = data.error.message;
+                    }
+                }
+
+                if (this.$refs.submiterror) {
+                    this.$refs.submiterror.innerHTML = message;
+                }
+            }
         },
 
         uid() {
