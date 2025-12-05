@@ -23,7 +23,7 @@
 
       <div class="center">
         <img class="finishlogo" src="@/assets/images/home_logo.png" @click="$router.push({ path: '/' })" />
-        <p>partilha o postal<br>com os teus amigos<br>e ajuda-os a ganhar<br>uma freebet!</p>
+        <p>partilha o postal<br>com os teus amigos<br>e ajuda-os a ganhar<br />freebets!</p>
 
         <div class="social">
           <a href="#" target="_blank" @click="downloadVideo($event)">

@@ -8,7 +8,7 @@
       <img class="mobile" src="@/assets/images/home_frame_center_mobile.png" />
       <div class="inside">
         <h1>Este Natal, <br>envia postais <br>e deixa-te <br>de likes!</h1>
-        <p>Surpreende o teu amigo <br>com um postal de natal <br>e ajuda-o a ganhar uma <br>freebet.</p>
+        <p>Surpreende o teu amigo <br>com um postal de natal <br>e ajuda-o a ganhar<br />freebets.</p>
         <div class="button" @click="start($event)">
           <svg width="248" height="64" viewBox="0 0 248 64" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
