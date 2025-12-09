@@ -300,7 +300,8 @@ export default {
             window.grecaptcha.ready(() => {
                 this.widgetId = window.grecaptcha.render(this.$refs.recaptcha, {
                     //sitekey: '6Ld-hSAsAAAAAKnYSDAgh9xYD6jYMrT9mfbOeuaZ', // localhost
-                    sitekey: '6Lc-MyEsAAAAACF1ZvHB9jQ-uYZ4J1Q7h5wbEB4T',  // abworks.synology.me
+                    //sitekey: '6Lc-MyEsAAAAACF1ZvHB9jQ-uYZ4J1Q7h5wbEB4T',  // abworks.synology.me
+                    sitekey: '6Ld8NiYsAAAAAA-vjHeBLj94OsznypV5BErSM3v1',  // postaisjinglebet.betclic.pt
                     callback: (token) => {
                         this.response = token      // aqui ficas com o token
                     },

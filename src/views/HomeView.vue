@@ -56,7 +56,7 @@ export default {
     ...mapActions(['setStarted']),
 
     share() {
-      window.open(`https://api.whatsapp.com:/send?text=https://postaisjinglebet.betclic.pt/`);
+      window.open(`https://api.whatsapp.com:/send?text=http://postaisjinglebet.betclic.pt/`);
     },
 
 

@@ -5,7 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/betclic-jinglebets',
+  //base: '/betclic-jinglebets',
+  base : '/',
   plugins: [
     vue(),
   ],
